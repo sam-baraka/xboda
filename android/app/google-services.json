@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "53314758487",
+    "firebase_url": "https://xboda-3ad75.firebaseio.com",
+    "project_id": "xboda-3ad75",
+    "storage_bucket": "xboda-3ad75.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:53314758487:android:889eadb574ab9a285cc012",
+        "android_client_info": {
+          "package_name": "com.example.xboda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "53314758487-d87r8idr48q3vvu2dp9lrnnr8qm5ko6a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.xboda",
+            "certificate_hash": "b081a47dfd142fc0e37678996877c6c2031d2de5"
+          }
+        },
+        {
+          "client_id": "53314758487-u3c5dn4c5pt4l2p27j57mgrukjqff6fm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1WJA6KOalZrDOT9BqWrL6RKQ666N52VA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "53314758487-u3c5dn4c5pt4l2p27j57mgrukjqff6fm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
