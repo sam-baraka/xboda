@@ -18,34 +18,29 @@ class _LaunchScreenState extends State<LaunchScreen> {
 
   @override
   void initState() {
-
-
-    try{
-    topPositioned = -400;
-    textOpacity = 0;
-    _everySecond = Timer.periodic(Duration(seconds: 1), (Timer t) {
-      setState(() {
-        if (topPositioned != 20 && textOpacity != 1) {
-          topPositioned = 30;
-          textOpacity = 1;
-        } else {
-          topPositioned = 10;
-          textOpacity = 0;
-        }
+    try {
+      topPositioned = -400;
+      textOpacity = 0;
+      _everySecond = Timer.periodic(Duration(seconds: 1), (Timer t) {
+        setState(() {
+          if (topPositioned != 20 && textOpacity != 1) {
+            topPositioned = 30;
+            textOpacity = 1;
+          } else {
+            topPositioned = 10;
+            textOpacity = 0;
+          }
+        });
       });
-    });
-    }
-    catch(e){
+    } catch (e) {
       return e[1];
     }
-
   }
 
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
         child: Stack(children: <Widget>[
-      
       AnimatedPositioned(
         curve: Curves.easeInOutSine,
 
@@ -100,23 +95,44 @@ class _LaunchScreenState extends State<LaunchScreen> {
             "Proceed to use the app!!!",
             style: TextStyle(fontSize: 20),
           ),
-
         ),
       ),
       Positioned(
-        
           top: 20,
           left: 10,
           child: CupertinoButton(
-              child: Icon(CupertinoIcons.info), onPressed: (){
-                showCupertinoModalPopup(context: context, builder: (BuildContext context)=>CupertinoPopupSurface(
-                  isSurfacePainted: false,
-                  child: ListView(
-                    children: <Widget>[
-                      Text("About X-Boda"),Text("About X-Boda"),Text("About X-Boda"),Text("About X-Boda"),Text("About X-Boda"),Text("About X-Boda"),Text("About X-Boda"),Text("About X-Boda"),Text("About X-Boda"),Text("About X-Boda"),Text("About X-Boda"),Text("About X-Boda"),Text("About X-Boda"),Text("About X-Boda"),Text("About X-Boda"),Text("About X-Boda"),Text("About X-Boda"),Text("About X-Boda"),Text("About X-Boda"),Text("About X-Boda"),Text("About X-Boda"),
-                    ],
-                  ),
-                ));
+              child: Icon(CupertinoIcons.info),
+              onPressed: () {
+                showCupertinoModalPopup(
+                    context: context,
+                    builder: (BuildContext context) => CupertinoPopupSurface(
+                          isSurfacePainted: false,
+                          child: ListView(
+                            children: <Widget>[
+                              Text("About X-Boda"),
+                              Text("About X-Boda"),
+                              Text("About X-Boda"),
+                              Text("About X-Boda"),
+                              Text("About X-Boda"),
+                              Text("About X-Boda"),
+                              Text("About X-Boda"),
+                              Text("About X-Boda"),
+                              Text("About X-Boda"),
+                              Text("About X-Boda"),
+                              Text("About X-Boda"),
+                              Text("About X-Boda"),
+                              Text("About X-Boda"),
+                              Text("About X-Boda"),
+                              Text("About X-Boda"),
+                              Text("About X-Boda"),
+                              Text("About X-Boda"),
+                              Text("About X-Boda"),
+                              Text("About X-Boda"),
+                              Text("About X-Boda"),
+                              Text("About X-Boda"),
+                            ],
+                          ),
+                        ));
               })),
     ]));
   }

@@ -34,7 +34,9 @@ class _HomeState extends State<Home> {
       navigationBar: CupertinoNavigationBar(
         middle: Text("X-Boda"),
         backgroundColor: Colors.transparent,
-        trailing: Icon(CupertinoIcons.info),
+        trailing: CupertinoButton(padding: EdgeInsets.only(),child: Icon(CupertinoIcons.settings), onPressed: (){
+          
+        })
 
         ),
       child: SafeArea(
