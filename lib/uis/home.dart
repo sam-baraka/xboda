@@ -1,8 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_rating/flutter_rating.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:xboda/uis/app_settings.dart';
 import 'package:xboda/uis/widgets/cab.dart';
 import 'package:xboda/uis/widgets/deliveries.dart';
 import 'package:xboda/uis/widgets/services.dart';
@@ -34,8 +33,8 @@ class _HomeState extends State<Home> {
       navigationBar: CupertinoNavigationBar(
         middle: Text("X-Boda"),
         backgroundColor: Colors.transparent,
-        trailing: CupertinoButton(padding: EdgeInsets.only(),child: Icon(CupertinoIcons.settings), onPressed: (){
-          
+        trailing: CupertinoButton(padding: EdgeInsets.all(0),child: Icon(CupertinoIcons.settings), onPressed: (){
+          Navigator.push(context, CupertinoPageRoute(builder: (BuildContext context)=>SettingsScreen()));
         })
 
         ),
@@ -55,11 +54,10 @@ class _HomeState extends State<Home> {
               right: 0,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Material(
-                  color: Colors.transparent,
-                  elevation: 20,
-                  shadowColor: CupertinoTheme.of(context).primaryColor,
-                    child: CupertinoSegmentedControl<int>(
+                child:
+                  // shadowColor: CupertinoTheme.of(context).primaryColor,
+                     CupertinoSlidingSegmentedControl<int>(
+                    thumbColor: CupertinoTheme.of(context).primaryColor,
                     children: tabs,
                     onValueChanged: (int newValue) {
                       setState(() {
@@ -68,7 +66,7 @@ class _HomeState extends State<Home> {
                     },
                     groupValue: sharedValue,
                   ),
-                ),
+                
               ),
             ),
             

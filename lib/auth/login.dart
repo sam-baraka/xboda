@@ -12,16 +12,16 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  ///Get the instance of App preferences
-  XbodaAuthPreferences xbodaAuthPreferences;
-  /// The controllers for the email and password
+  //Password obscure
   bool obscure = true;
+  //TOggle password obscure state
   toggleObscure() {
     setState(() {
       obscure = !obscure;
     });
   }
 
+  /// The controllers for the email and password
   var EmailController = TextEditingController();
   var PasswordController = TextEditingController();
   bool Loading = false;
@@ -40,12 +40,10 @@ class _LoginPageState extends State<LoginPage> {
       //Login the user
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
-      //Navigate then Change loading state to false
-      await Navigator.push(context,
-          CupertinoPageRoute(builder: (BuildContext context) => Home()));
-      await toggleLoadingState();
+      //Save the preferences to the device to maintain login state
+      XbodaAuthPreferences.setLoggedIn();
       print("Login Successful");
-      Fluttertoast.showToast(
+      await Fluttertoast.showToast(
           msg: "Login successful ",
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.BOTTOM,
@@ -53,11 +51,14 @@ class _LoginPageState extends State<LoginPage> {
           backgroundColor: CupertinoTheme.of(context).primaryColor,
           textColor: Colors.white,
           fontSize: 16.0);
-      //Save the preferences to the device to maintain login state
-      await xbodaAuthPreferences.setLoggedIn();
+      
+      //Navigate then Change loading state to false
+      await Navigator.push(context,
+          CupertinoPageRoute(builder: (BuildContext context) => Home()));
+      await toggleLoadingState();
     } catch (e) {
       await toggleLoadingState();
-      Fluttertoast.showToast(
+      await Fluttertoast.showToast(
           msg: "Login failed:" + e.toString(),
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.BOTTOM,

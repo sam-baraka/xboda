@@ -30,6 +30,7 @@ dependencies:
   provider: ^4.0.4
   flutter_spinkit: ^4.1.1+1
   shared_preferences: 
+  flutter_cupertino_settings: ^0.3.0
 
 dev_dependencies:
   flutter_test:

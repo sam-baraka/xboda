@@ -2,26 +2,31 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class XbodaAuthPreferences {
   //Login preferences
-  String loggedInKey = "LoggedIn";
+  static String loggedInKey = "LoggedIn";
+
+  Object get LoggedInKey => loggedInKey;
   //App state logged in
 
-  void setLoggedIn() async {
+  static void setLoggedIn() async {
     //Declare the instance of shared preferences
     SharedPreferences preferences = await SharedPreferences.getInstance();
     //Set the logged in state to be true
-    await preferences.setBool(loggedInKey, true);
+    preferences.setBool(loggedInKey, true);
+    print("Set user logged in state to true");
   }
 
-  //App state logged oout
-  void setLoggedOut() async {
+  //App state logged out
+  static void setLoggedOut() async {
     //Declare the instance of shared preferences
     SharedPreferences preferences = await SharedPreferences.getInstance();
     //Set the logged in state to be false
     await preferences.setBool(loggedInKey, false);
+    print("Set user logged out state to true");
   }
 
   //Get the logged in state
-  Future<bool> getAppAuthState() async {
+  static Future<bool> getAppAuthState() async {
+    try{
     //Declare the instance of shared preferences
     SharedPreferences preferences = await SharedPreferences.getInstance();
     //get the state
@@ -30,5 +35,10 @@ class XbodaAuthPreferences {
     return state;
     else
     return false;
+    }
+    catch(e){
+      print(e);
+      return false;
+    }
   }
 }
