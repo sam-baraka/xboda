@@ -19,7 +19,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
             previousPageTitle: "Home", largeTitle: Text("Settings")),
         SliverFillRemaining(
             child: CupertinoSettings(items: <Widget>[
-          const CSHeader('Brightness'),
+          const CSHeader('Account'),
+          CSButton(CSButtonType.DEFAULT, "View my profile", () {
+            print("It works!");
+          }),
+          CSButton(CSButtonType.DEFAULT, "Payment options", () {
+            print("It works!");
+          }),
+          const CSHeader('Appearance'),
           CSWidget(CupertinoSlider(value: 0.5), style: brightnessStyle),
           CSControl(
             nameWidget: Text('Auto brightness'),
@@ -46,8 +53,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
             contentWidget: CupertinoActivityIndicator(),
           ),
           CSButton(CSButtonType.DEFAULT, "Licenses", () {
-            print("It works!");
+            
+            print("Licenses!");
           }),
+          CupertinoContextMenu(actions: [
+            CupertinoButton(child:Text("Leave the app"), onPressed: () {},),
+            CupertinoButton(child:Text("Leave the app"), onPressed: () {},),
+            CupertinoButton(child:Text("Leave the app"), onPressed: () {},),
+
+          ], child: CupertinoButton(child: Icon(Icons.more_vert),onPressed:(){})),
           const CSHeader(''),
           CSButton(CSButtonType.DESTRUCTIVE, "Delete all data", () {})
         ]))
